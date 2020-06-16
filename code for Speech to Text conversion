@@ -1,5 +1,5 @@
 import speech_recognition as sr
-
+import webbrowser as wb
 
 
 def main():
@@ -11,16 +11,11 @@ def main():
         print('Please Say Something')
         audio=r.listen(source)
         
-        print('Recognizing ...')
-        
         try:
-            print('You have said \n'+r.recognize_google(audio))
-            print('Audio Recorded Successfully \n')
+            print('You have said: \n' + r.recognize_google(audio))
+            
         except Exception as e:
-            print('Error'+str(e))
-        
-        with open('recordedaudio.wav','wb') as f:
-            f.write(audio.get_wav_data())
-
-if __name__=='__main__':
+            print('Error:'+str(e))
+            
+if __name__=="__main__":
     main()
